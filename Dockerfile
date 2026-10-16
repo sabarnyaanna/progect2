@@ -1,8 +1,8 @@
 FROM node:20-alpine AS build
 WORKDIR /app
-COPY package*.json ./
+COPY my-todo-app/package*.json ./
 RUN npm install --silent
-COPY . ./
+COPY my-todo-app/ ./
 RUN npm run build
 
 FROM nginx:stable-alpine AS production
